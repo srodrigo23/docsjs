@@ -1,0 +1,49 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Registro de Cuenta
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb' crossorigin='anonymous')
+  link(rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/main.css')
+.container
+  .col-sm-6.mx-auto
+    .card.mt-5
+      .card-body
+        // messages
+        h1.text-center
+          span.fa.fa-sign-in
+          |       Registrar Usuario
+        - if (message.length > 0)
+          div.alert.alert-danger #{message}   
+        // form
+        form(action='/signup' method='post')
+          .form-group
+            label(for='prefijo') Prefijo
+            div
+              select(name='prefijo')
+                option(value='Señor') Señor
+                option(value='Señora') Señora
+                option(value='Joven') Joven
+                option(value='Señorita') Señorita
+          .form-group
+            label(for='nombre') Nombre
+            input.form-control(type='nombre' name='nombre')
+          .form-group
+            label(for='apellido') Apellido
+            input.form-control(type='apellido' name='apellido')
+          .form-group
+            label(for='email') Email
+            input.form-control(type='email' name='email')
+          .form-group
+            label(for='password') Password
+            input.form-control(type='password' name='password')
+          input.btn.btn-dark.btn-lg(type='submit')
+        hr
+        .text-center
+          //p
+            | Already have an account? 
+            a(href='/login') Login
+          p
+            | Ir a 
+            a(href='/') Página principal
+            | .
